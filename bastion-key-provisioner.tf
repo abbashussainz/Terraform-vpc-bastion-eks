@@ -5,7 +5,7 @@ resource "null_resource" "ec2-key-pair" {
     host        = aws_eip.bastion_eip.public_ip
     user        = "ec2-user"
     password    = ""
-    private_key = file("private-key/key")
+    private_key = file("private_key/key")
   }
 
 
