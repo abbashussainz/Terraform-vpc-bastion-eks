@@ -15,7 +15,7 @@ Before you can run this project, you must have the following tools installed:
 
 
 You must also have AWS credentials set up on your local machine. <br>
-creat a key-value pair named "eks-terraform-key" and copy the pem file to private-key/eks-terraform-key.pem
+creat a key-value pair named "eks-terraform-key" and copy the pem file to `private-key/eks-terraform-key.pem`
 
 ## Getting Started
 Follow these steps to get started with this Terraform project:
