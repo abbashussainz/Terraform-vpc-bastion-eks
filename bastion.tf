@@ -2,7 +2,7 @@ module "ec2_bastion" {
   name                   = var.ec2_name
   source                 = "terraform-aws-modules/ec2-instance/aws"
   version                = "3.3.0"
-  ami                    = var.bastion_ami
+  ami                    = data.aws_ami.amzlinux2
   instance_type          = var.instance_type
   key_name               = var.instance_keypair
   subnet_id              = module.vpc.public_subnets[0]
