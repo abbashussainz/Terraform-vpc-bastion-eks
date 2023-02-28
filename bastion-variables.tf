@@ -10,3 +10,7 @@ variable "instance_keypair" {
   type = string
   default = "eks-terraform-key"
 }
+
+variable "ec2_name" {
+  default = "bastion-host"
+}
