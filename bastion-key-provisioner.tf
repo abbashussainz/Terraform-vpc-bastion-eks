@@ -1,12 +1,15 @@
-resource "null_resource" "ec2-key-pair" {
+
+resource "null_resource" "copy_ec2_keys" {
+
+  depends_on = [module.ec2_bastion]
 
   connection {
-    type        = "ssh"
-    host        = aws_eip.bastion_eip.public_ip
-    user        = "ec2-user"
-    password    = ""
-    private_key = file("private_key/key")
-  }
+    type     = "ssh"
+    host     = aws_eip.bastion_eip.public_ip    
+    user     = "ec2-user"
+    password = ""
+    private_key = file("private-key/eks-terraform-key.pem")
+  }  
 
 
   provisioner "file" {
@@ -19,7 +22,4 @@ resource "null_resource" "ec2-key-pair" {
       "sudo chmod 400 /tmp/eks-terraform-key.pem"
     ]
   }
-
-  #explicit dependency 
-  depends_on = [module.vpc, module.ec2_bastion]
 }
